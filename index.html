@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DuckTrade</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+
+    #verified-banner {
+      display: none;
+      background: #e6f4ea;
+      border: 1px solid #a8d5b5;
+      color: #2d6a4f;
+      padding: 14px 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 36px;
+      max-width: 360px;
+      width: 100%;
+    }
+    #verified-banner strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+    #verified-banner span { font-size: 0.85rem; opacity: 0.85; }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px;
+      max-width: 360px;
+      width: 100%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+
+    .logo { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .logo span { color: #f5a623; }
+
+    .tagline { font-size: 0.85rem; color: #888; margin-bottom: 24px; }
+
+    .desc {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .open-btn {
+      display: inline-block;
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    footer { margin-top: 28px; font-size: 0.75rem; color: #bbb; }
+  </style>
+</head>
+<body>
+
+  <div id="verified-banner">
+    <strong>이메일 인증이 완료되었습니다</strong>
+    <span>앱으로 돌아가 로그인을 계속하세요.</span>
+  </div>
+
+  <div class="card">
+    <div class="logo">Duck<span>Trade</span></div>
+    <div class="tagline">포켓몬 카드 거래 플랫폼</div>
+
+    <p class="desc">
+      DuckTrade는 포켓몬 카드를 안전하게 사고팔 수 있는 P2P 거래 앱입니다.<br><br>
+      매수·매도 호가창으로 공정한 가격을 형성하고,<br>
+      포인트 기반 수수료로 투명하게 거래하세요.
+    </p>
+
+    <a class="open-btn" href="ducktrade://">앱 열기</a>
+  </div>
+
+  <footer>© 2025 DuckTrade</footer>
+
+  <script>
+    const hash = new URLSearchParams(window.location.hash.slice(1));
+    if (hash.get('type') === 'signup' || hash.get('type') === 'email_change') {
+      document.getElementById('verified-banner').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
