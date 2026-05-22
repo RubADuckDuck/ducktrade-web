@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보 처리방침 — DuckTrade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1814;
+      --ink-light: #4a4640;
+      --ink-faint: #8a8580;
+      --paper: #f8f5f0;
+      --paper-dark: #ede9e2;
+      --rule: #d4cfc7;
+      --accent: #2c4a3e;
+      --accent-light: #e8ede9;
+      --warn-bg: #fdf6ec;
+      --warn-border: #c8a96e;
+      --serif: 'Noto Serif KR', Georgia, serif;
+      --sans: 'Noto Sans KR', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.9;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--accent);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.02) 40px,
+        rgba(255,255,255,0.02) 80px
+      );
+    }
+
+    .header-inner { position: relative; z-index: 1; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-duck {
+      font-size: 22px;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.04em;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--paper-dark);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    nav::-webkit-scrollbar { display: none; }
+
+    .nav-inner {
+      display: inline-flex;
+      gap: 0;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 14px 16px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-faint);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* LAYOUT */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ARTICLE NUMBER + TITLE */
+    .section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section:nth-child(1)  { animation-delay: 0.05s; }
+    .section:nth-child(2)  { animation-delay: 0.10s; }
+    .section:nth-child(3)  { animation-delay: 0.15s; }
+    .section:nth-child(4)  { animation-delay: 0.20s; }
+    .section:nth-child(5)  { animation-delay: 0.25s; }
+    .section:nth-child(6)  { animation-delay: 0.30s; }
+    .section:nth-child(7)  { animation-delay: 0.35s; }
+    .section:nth-child(8)  { animation-delay: 0.40s; }
+    .section:nth-child(9)  { animation-delay: 0.45s; }
+    .section:nth-child(10) { animation-delay: 0.50s; }
+    .section:nth-child(11) { animation-delay: 0.55s; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-num {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .section h2 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    /* BODY TEXT */
+    .section p {
+      font-size: 14.5px;
+      line-height: 1.95;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .section ul li {
+      font-size: 14.5px;
+      line-height: 1.9;
+      color: var(--ink-light);
+      padding-left: 1.25rem;
+      position: relative;
+      margin-bottom: 2px;
+    }
+
+    .section ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0.25rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* TABLES */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 6px;
+      border: 1px solid var(--rule);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      min-width: 480px;
+    }
+
+    thead tr {
+      background: var(--accent);
+    }
+
+    thead th {
+      padding: 11px 14px;
+      text-align: left;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 12px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-top: 1px solid var(--rule);
+      transition: background 0.15s;
+    }
+
+    tbody tr:first-child { border-top: none; }
+    tbody tr:nth-child(even) { background: var(--paper-dark); }
+    tbody tr:hover { background: var(--accent-light); }
+
+    tbody td {
+      padding: 11px 14px;
+      color: var(--ink-light);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+
+    tbody td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    /* HIGHLIGHT BOX */
+    .alert {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-left: 3px solid var(--warn-border);
+      border-radius: 4px;
+      padding: 1.1rem 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .alert-title {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 600;
+      color: #7a5c2a;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+
+    .alert p {
+      font-size: 13.5px !important;
+      line-height: 1.85 !important;
+      color: #5a4a30 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* OFFICER CARD */
+    .officer-card {
+      background: var(--accent-light);
+      border: 1px solid #c2d4cc;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .officer-row {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .officer-label {
+      font-weight: 500;
+      color: var(--accent);
+      min-width: 60px;
+      flex-shrink: 0;
+    }
+
+    .officer-value {
+      color: var(--ink-light);
+    }
+
+    .officer-note {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #c2d4cc;
+      font-size: 13px;
+      color: var(--ink-faint);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      header { padding: 2.5rem 1.25rem 2rem; }
+      main { padding: 2rem 1.25rem 4rem; }
+      nav { padding: 0 1.25rem; }
+      .section-header { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="index.html" style="text-decoration:none;">
+      <span class="brand-duck">🦆</span>
+      <span class="brand-name">DuckTrade</span>
+    </a>
+    <h1>개인정보 처리방침</h1>
+    <p class="header-meta">시행일: 2026년 5월 22일 &nbsp;·&nbsp; 덕트레이드 (DuckTrade)</p>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#s1">처리 목적</a>
+    <a href="#s2">수집 항목</a>
+    <a href="#s3">제3자 제공</a>
+    <a href="#s4">처리 위탁</a>
+    <a href="#s5">보유 기간</a>
+    <a href="#s6">이용자 권리</a>
+    <a href="#s7">파기</a>
+    <a href="#s8">안전 조치</a>
+    <a href="#s9">보호책임자</a>
+    <a href="#s10">방침 변경</a>
+    <a href="#s11">구제 방법</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">제 1 조</span>
+      <h2>개인정보의 처리 목적</h2>
+    </div>
+    <p>덕트레이드(이하 "회사")는 개인정보 보호법 제15조에 따라 다음 각 호의 목적을 위하여 개인정보를 처리합니다. 처리하는 개인정보는 아래 목적 이외의 용도로 이용되지 아니하며, 이용 목적이 변경되는 경우에는 동법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행합니다.</p>
+    <ul>
+      <li>회원 가입 및 관리 (본인 확인, 서비스 이용계약의 체결·유지·이행 및 부정 이용 방지)</li>
+      <li>서비스 제공 (트레이딩 카드 거래 중개, 포인트 시스템 운영)</li>
+      <li>본인인증 (PortOne을 통한 본인확인 서비스)</li>
+      <li>거래 당사자 간 배송 처리 및 대금 정산</li>
+      <li>거래 상대방 식별, 부정거래 방지 및 사기 피해 구제 지원</li>
+      <li>고객 문의 및 민원 처리</li>
+      <li>법령 및 이용약관 위반 행위의 방지·탐지·제재</li>
+    </ul>
+  </div>
+
+  <div class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">제 2 조</span>
+      <h2>처리하는 개인정보의 항목</h2>
+    </div>
+    <p>회사는 서비스 제공에 필요한 최소한의 개인정보만을 수집합니다. 수집 항목 및 방법은 다음과 같습니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>수집 항목</th>
+            <th>수집 방법</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>필수 (공통)</td>
+            <td>이름, 이메일 주소, 휴대폰 번호</td>
+            <td>회원 가입 시 이용자 직접 입력</td>
+          </tr>
+          <tr>
+            <td>구매자 추가 항목</td>
+            <td>배송지 주소 (수령인명, 주소, 상세주소, 우편번호)</td>
+            <td>거래 진행 시 이용자 직접 입력</td>
+          </tr>
+          <tr>
+            <td>판매자 추가 항목</td>
+            <td>계좌번호, 예금주명, 은행명</td>
+            <td>거래 진행 시 이용자 직접 입력</td>
+          </tr>
+          <tr>
+            <td>본인인증</td>
+            <td>성명, 생년월일, 성별, 휴대폰 번호, 이동통신사 정보</td>
+            <td>PortOne 본인인증 서비스를 통한 수집</td>
+          </tr>
+          <tr>
+            <td>자동 수집</td>
+            <td>접속 IP 주소, 기기 식별 정보, 운영체제 및 앱 버전, 서비스 이용 기록</td>
+            <td>서비스 이용 과정에서 자동 생성·수집</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>회사는 만 14세 미만 아동의 개인정보를 수집하지 아니합니다. 본인인증 과정에서 만 14세 미만으로 확인된 이용자는 서비스 가입이 제한됩니다.</p>
+  </div>
+
+  <div class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">제 3 조</span>
+      <h2>개인정보의 제3자 제공</h2>
+    </div>
+    <p>회사는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 아니합니다. 다만, 다음 각 호의 경우에는 예외로 합니다.</p>
+    <ul>
+      <li>이용자가 사전에 동의한 경우</li>
+      <li>법령의 규정에 의거하거나, 수사 목적으로 법령에서 정한 절차와 방법에 따라 수사기관이 요구하는 경우</li>
+    </ul>
+    <p>회사는 거래 매칭이 성사된 경우, 원활한 배송 처리·대금 정산 및 부정거래 방지를 목적으로 아래와 같이 거래 당사자 간 개인정보를 상호 제공합니다. 이용자는 서비스 가입 시 본 조항에 명시적으로 동의하여야 하며, 동의하지 않을 경우 거래 서비스의 이용이 제한됩니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>제공받는 자</th>
+            <th>제공 항목</th>
+            <th>제공 목적</th>
+            <th>보유 기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>매칭된 판매자</td>
+            <td>구매자 이름, 휴대폰 번호, 배송지 주소</td>
+            <td>배송 처리, 거래 당사자 본인 확인, 부정거래 신고</td>
+            <td>거래 완료 또는 취소 후 30일 이내 파기</td>
+          </tr>
+          <tr>
+            <td>매칭된 구매자</td>
+            <td>판매자 이름, 휴대폰 번호, 계좌번호, 예금주명, 은행명</td>
+            <td>대금 정산, 거래 당사자 본인 확인, 부정거래 신고</td>
+            <td>거래 완료 또는 취소 후 30일 이내 파기</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert">
+      <div class="alert-title">【중요 고지 — 거래 상대방 정보 제공 동의】</div>
+      <p>거래 매칭이 성사되는 경우, 구매자의 이름·휴대폰 번호·배송지 주소는 판매자에게, 판매자의 이름·휴대폰 번호·계좌번호·예금주명·은행명은 구매자에게 각각 제공됩니다. 제공된 개인정보는 배송 처리, 대금 정산 및 사기·허위거래 등 부정거래 발생 시 신고 용도로만 활용될 수 있으며, 그 외의 목적으로 사용하는 행위는 개인정보 보호법에 따라 처벌받을 수 있습니다. 이용자는 본 조항에 동의함으로써, 상대방 역시 동일한 조건 하에 자신의 개인정보를 제공받음을 인지하고 이를 수락한 것으로 간주합니다.</p>
+    </div>
+  </div>
+
+  <div class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">제 4 조</span>
+      <h2>개인정보 처리의 위탁</h2>
+    </div>
+    <p>회사는 원활한 서비스 제공을 위하여 개인정보 처리 업무의 일부를 아래와 같이 외부에 위탁합니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>수탁업체</th>
+            <th>위탁 업무 내용</th>
+            <th>보유 및 이용 기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PortOne (포트원)</td>
+            <td>결제 처리 및 본인인증 서비스</td>
+            <td>위탁 계약 종료 시까지</td>
+          </tr>
+          <tr>
+            <td>Supabase Inc.</td>
+            <td>데이터베이스, 회원 인증 및 서버 인프라 운영</td>
+            <td>위탁 계약 종료 시까지</td>
+          </tr>
+          <tr>
+            <td>Cloudflare Inc.</td>
+            <td>이미지 파일 저장 및 콘텐츠 전송 네트워크(CDN) 운영</td>
+            <td>위탁 계약 종료 시까지</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>회사는 위탁계약 체결 시 개인정보 보호법 제26조에 따라 위탁업무 수행 목적 외 개인정보 처리 금지, 기술적·관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리·감독 및 손해배상 등에 관한 사항을 계약서에 명시하고, 수탁자가 개인정보를 안전하게 처리하는지를 감독합니다.</p>
+  </div>
+
+  <div class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">제 5 조</span>
+      <h2>개인정보의 처리 및 보유 기간</h2>
+    </div>
+    <p>회사는 법령에 따른 개인정보 보유·이용 기간 또는 이용자로부터 개인정보를 수집 시 동의받은 개인정보 보유·이용 기간 내에서 개인정보를 처리·보유합니다. 각 개인정보의 처리 및 보유 기간은 다음과 같습니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>보유 항목</th>
+            <th>보유 기간</th>
+            <th>근거 법령</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>회원 정보 (이름, 이메일, 휴대폰 번호)</td>
+            <td>회원 탈퇴 후 30일 이내 파기</td>
+            <td>개인정보 보호법</td>
+          </tr>
+          <tr>
+            <td>배송지 주소 (구매자)</td>
+            <td>거래 완료 또는 취소 후 30일 이내 파기</td>
+            <td>개인정보 보호법</td>
+          </tr>
+          <tr>
+            <td>계좌 정보 (판매자)</td>
+            <td>거래 완료 또는 취소 후 30일 이내 파기</td>
+            <td>개인정보 보호법</td>
+          </tr>
+          <tr>
+            <td>거래 기록 (포인트 사용 내역 포함)</td>
+            <td>5년</td>
+            <td>전자상거래 등에서의 소비자보호에 관한 법률 제6조</td>
+          </tr>
+          <tr>
+            <td>대금결제 및 재화 공급 기록</td>
+            <td>5년</td>
+            <td>전자상거래 등에서의 소비자보호에 관한 법률 제6조</td>
+          </tr>
+          <tr>
+            <td>본인인증 정보</td>
+            <td>인증 완료 즉시 파기 (PortOne에서 처리)</td>
+            <td>정보통신망 이용촉진 및 정보보호 등에 관한 법률</td>
+          </tr>
+          <tr>
+            <td>소비자 불만 및 분쟁 처리 기록</td>
+            <td>3년</td>
+            <td>전자상거래 등에서의 소비자보호에 관한 법률 제6조</td>
+          </tr>
+          <tr>
+            <td>서비스 접속 로그 기록</td>
+            <td>3개월</td>
+            <td>통신비밀보호법 제41조</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">제 6 조</span>
+      <h2>이용자의 권리·의무 및 그 행사 방법</h2>
+    </div>
+    <p>이용자는 회사에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.</p>
+    <ul>
+      <li>개인정보 열람 요청</li>
+      <li>오류 등이 있을 경우 정정 요청</li>
+      <li>삭제 요청</li>
+      <li>처리 정지 요청</li>
+    </ul>
+    <p>제1항에 따른 권리 행사는 개인정보 보호법 시행령 제41조 제1항에 따라 서면, 전자우편 등을 통하여 하실 수 있으며, 회사는 이에 대해 지체 없이 조치하겠습니다.</p>
+    <p>이용자가 개인정보의 오류 등에 대한 정정 또는 삭제를 요구한 경우에는 해당 처리가 완료될 때까지 당해 개인정보를 이용하거나 제3자에게 제공하지 아니합니다.</p>
+    <p>제1항에 따른 권리 행사는 이용자의 법정대리인이나 위임을 받은 자 등 대리인을 통하여도 하실 수 있습니다. 이 경우 개인정보 보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하여야 합니다.</p>
+  </div>
+
+  <div class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">제 7 조</span>
+      <h2>개인정보의 파기</h2>
+    </div>
+    <p>회사는 개인정보 보유 기간의 경과, 처리 목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.</p>
+    <p>이용자로부터 동의받은 개인정보 보유 기간이 경과하거나 처리 목적이 달성되었음에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관 장소를 달리하여 보존합니다.</p>
+    <p>전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없도록 기술적 방법을 사용하여 영구 삭제하며, 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기합니다.</p>
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">제 8 조</span>
+      <h2>개인정보의 안전성 확보 조치</h2>
+    </div>
+    <p>회사는 개인정보 보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적, 관리적 조치를 강구하고 있습니다.</p>
+    <ul>
+      <li>개인정보 취급 직원의 최소화 및 정기 교육 실시</li>
+      <li>개인정보에 대한 접근 권한의 통제 및 비밀번호 암호화(단방향 해시) 저장</li>
+      <li>해킹, 악성코드 등 외부 침입에 대비한 기술적 보호 조치 (HTTPS 전면 적용, 데이터 암호화)</li>
+      <li>개인정보의 전송 및 저장 시 SSL/TLS 암호화 프로토콜 적용</li>
+      <li>개인정보 처리 시스템에 대한 접속 기록의 보관 및 위·변조 방지 조치</li>
+    </ul>
+  </div>
+
+  <div class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">제 9 조</span>
+      <h2>개인정보 보호책임자</h2>
+    </div>
+    <p>회사는 개인정보 처리에 관한 업무를 총괄 책임지고, 개인정보 처리와 관련한 이용자의 불만 처리 및 피해 구제를 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+    <div class="officer-card">
+      <div class="officer-row">
+        <span class="officer-label">성명</span>
+        <span class="officer-value">허정회 (Hur Jung Hoe)</span>
+      </div>
+      <div class="officer-row">
+        <span class="officer-label">직책</span>
+        <span class="officer-value">개인정보 보호책임자</span>
+      </div>
+      <div class="officer-row">
+        <span class="officer-label">이메일</span>
+        <span class="officer-value">kmo73724@gmail.com</span>
+      </div>
+      <div class="officer-note">이용자는 개인정보 보호 관련 문의, 불만 처리, 피해 구제 등에 관한 사항을 위 개인정보 보호책임자에게 문의하실 수 있습니다. 회사는 이용자의 문의에 대해 지체 없이 답변 및 처리하겠습니다.</div>
+    </div>
+  </div>
+
+  <div class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">제 10 조</span>
+      <h2>개인정보 처리방침의 변경</h2>
+    </div>
+    <p>이 개인정보 처리방침은 2026년 5월 22일부터 시행됩니다.</p>
+    <p>내용의 추가, 삭제 및 정정이 있는 경우에는 변경 사항의 시행 7일 전부터 앱 내 공지사항을 통하여 고지합니다. 다만, 이용자의 권리 또는 의무에 중대한 변경이 있는 경우에는 시행 30일 전부터 고지하며, 필요한 경우 이용자의 별도 동의를 받습니다.</p>
+  </div>
+
+  <div class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">제 11 조</span>
+      <h2>권익 침해에 대한 구제 방법</h2>
+    </div>
+    <p>이용자는 개인정보 침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁 해결이나 상담 등을 신청할 수 있습니다. 이 밖에 기타 개인정보 침해의 신고·상담에 대하여는 아래 기관에 문의하시기 바랍니다.</p>
+    <ul>
+      <li>개인정보분쟁조정위원회: 국번 없이 1833-6972 &nbsp;(www.kopico.go.kr)</li>
+      <li>개인정보침해신고센터: 국번 없이 118 &nbsp;(privacy.kisa.or.kr)</li>
+      <li>대검찰청 사이버수사과: 국번 없이 1301 &nbsp;(www.spo.go.kr)</li>
+      <li>경찰청 사이버수사국: 국번 없이 182 &nbsp;(ecrm.cyber.go.kr)</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-brand">DUCKTRADE · 덕트레이드</p>
+  <p class="footer-copy">© 2026 DuckTrade. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
