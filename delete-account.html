@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>계정 삭제 요청 — DuckTrade</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9f9f9;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 32px 20px 64px;
+    }
+
+    .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .logo a { color: inherit; text-decoration: none; }
+    .logo span { color: #f5a623; }
+
+    .page-title {
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 12px;
+    }
+
+    .section-num {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #888;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .section h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .section p {
+      font-size: 0.85rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #f5a623;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .email-btn {
+      display: block;
+      margin-top: 16px;
+      padding: 13px 20px;
+      background: #f5a623;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 4px;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 8px 10px;
+      background: #f5f5f5;
+      color: #555;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+
+    .data-table td {
+      padding: 9px 10px;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 1.55;
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .badge-del  { background: #fee2e2; color: #b91c1c; }
+    .badge-keep { background: #fef3c7; color: #92400e; }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="header">
+      <div class="logo"><a href="index.html">Duck<span>Trade</span></a></div>
+      <div class="page-title">계정 및 데이터 삭제 요청</div>
+    </div>
+
+    <!-- 1. 개요 -->
+    <div class="section">
+      <div class="section-num">01</div>
+      <h2>계정 삭제 요청 방법</h2>
+      <p>
+        DuckTrade(개발자: DuckTrade) 앱에서 계정을 삭제하려면 아래 단계를 따라 주세요.
+        요청 접수 후 <strong>영업일 기준 7일 이내</strong>에 처리됩니다.
+      </p>
+      <ol class="steps">
+        <li>아래 <strong>이메일 보내기</strong> 버튼을 탭하거나, 직접 <strong>support@ducktrade.io</strong>로 이메일을 보냅니다.</li>
+        <li>제목을 <strong>"계정 삭제 요청"</strong>으로 작성하고, 가입 시 사용한 <strong>전화번호</strong>를 본문에 적어 주세요.</li>
+        <li>본인 확인 후 계정 및 관련 데이터가 삭제되며, 처리 완료 시 이메일로 안내드립니다.</li>
+      </ol>
+      <a class="email-btn" href="mailto:support@ducktrade.io?subject=계정 삭제 요청">이메일 보내기</a>
+    </div>
+
+    <!-- 2. 삭제·보관 데이터 -->
+    <div class="section">
+      <div class="section-num">02</div>
+      <h2>삭제 및 보관 데이터</h2>
+      <p>계정 삭제 시 아래와 같이 처리됩니다.</p>
+      <table class="data-table">
+        <tr>
+          <th>데이터 유형</th>
+          <th>처리</th>
+          <th>보관 기간</th>
+        </tr>
+        <tr>
+          <td>계정 정보 (전화번호, 프로필)</td>
+          <td><span class="badge badge-del">즉시 삭제</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>포인트 내역</td>
+          <td><span class="badge badge-del">즉시 삭제</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>카드 투표 기록</td>
+          <td><span class="badge badge-del">즉시 삭제</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>거래 내역 (구매·판매)</td>
+          <td><span class="badge badge-keep">보관</span></td>
+          <td>전자상거래법에 따라 5년</td>
+        </tr>
+        <tr>
+          <td>결제 기록</td>
+          <td><span class="badge badge-keep">보관</span></td>
+          <td>전자금융거래법에 따라 5년</td>
+        </tr>
+      </table>
+      <p style="margin-top:14px;">
+        법령에 의해 보관이 필요한 데이터는 해당 기간 경과 후 즉시 파기됩니다.
+      </p>
+    </div>
+
+    <footer>© 2025 DuckTrade. All rights reserved.</footer>
+  </div>
+</body>
+</html>
