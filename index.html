@@ -56,9 +56,28 @@
       text-align: left;
     }
 
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
     .open-btn {
       display: inline-block;
       background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .play-btn {
+      display: inline-block;
+      background: #01875f;
       color: #fff;
       text-decoration: none;
       padding: 12px 28px;
@@ -89,7 +108,10 @@
       포인트 기반 수수료로 투명하게 거래하세요.
     </p>
 
-    <a class="open-btn" href="ducktrade://">앱 열기</a>
+    <div class="btn-row">
+      <a class="open-btn" href="ducktrade://">앱 열기</a>
+      <a class="play-btn" href="https://play.google.com/store/apps/details?id=io.ducktrade.app&hl=en" target="_blank" rel="noopener">Google Play에서 다운로드</a>
+    </div>
   </div>
 
   <footer>© 2026 DuckTrade &nbsp;·&nbsp; <a href="privacy.html">개인정보 처리방침</a></footer>
